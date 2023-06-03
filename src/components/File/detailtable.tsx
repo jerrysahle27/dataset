@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     minWidth: 650,
     "& .MuiTableCell-root": {
       border: "1px solid grey",
-      backgroundColor: theme.palette.common.black,
+      backgroundColor: '#24303C',
     },
   },
   tablevalue: {

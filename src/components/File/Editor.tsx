@@ -4,7 +4,7 @@ function Editor() {
   const textRef = React.useRef();
   const [code, setCode] = React.useState(
     `--js type('table')\n\n  
-     SELECT country  as country,
+     SELECT country        as country,
             device_type    as device_type,
             sum(revenue)   as revenue,
             sum(sessions)  as sessions,
@@ -30,11 +30,12 @@ function Editor() {
         placeholder="Please enter JS code."
         onChange={(evn) => setCode(evn.target.value)}
         padding={15}
-        minHeight={100}
+        minHeight={290}
         style={{
           fontFamily:
             "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
           fontSize: 12,
+          backgroundColor: "#2E3A46",
         }}
       />
     </div>

@@ -8,7 +8,14 @@ import {
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Alert from "@material-ui/lab/Alert";
-import { Accordion, Button, Chip, Typography } from "@material-ui/core";
+import {
+  Accordion,
+  Box,
+  Button,
+  Chip,
+  Container,
+  Typography,
+} from "@material-ui/core";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import BootstrapButton from "../../common/button";
 
@@ -63,21 +70,18 @@ interface StyledTabProps {
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    flexGrow: 1,
-    // backgroundColor: theme.palette.grey[900],
-  },
-  padding: {
-    padding: theme.spacing(3),
-  },
   demo1: {
-    backgroundColor: theme.palette.grey[900],
+    backgroundColor:"#2E3A46"
   },
-
   container: {
-    display: "flex",
-    mariginTop: "16",
+    display: "flex-column",
     justifyContent: "space-between",
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+  buttongroup: {
+    display: "flex-row",
   },
   title: {
     display: "flex",
@@ -94,8 +98,8 @@ export default function CustomizedTabs() {
   };
 
   return (
-    <div className={classes.root}>
-      <div className={classes.demo1}>
+    <div className="demo1">
+      <div>
         <AntTabs value={value} onChange={handleChange} aria-label="ant example">
           <AntTab label="Outline" />
           <AntTab label="Documentation" />
@@ -105,7 +109,7 @@ export default function CustomizedTabs() {
       <div className={classes.container}>
         <div className={classes.title}>
           <div style={{ marginRight: 10 }}>
-            <Chip label="View" />
+            <Chip label="View" color="primary" />
           </div>
           <Typography variant="body2">dataset_5_from_script_builder</Typography>
         </div>
@@ -135,11 +139,16 @@ export default function CustomizedTabs() {
           aria-controls="panel3a-content"
           id="panel3a-header"
         >
-          <Typography>Query</Typography>
-          {/* <div className={classes.container}>
-            <BootstrapButton>Execute query</BootstrapButton>
-            <BootstrapButton>Run this node</BootstrapButton>
-          </div> */}
+          <div className={classes.container}>
+            <Typography>Query</Typography>
+
+            <Box component="span" m={2}>
+              <BootstrapButton disabled style={{ marginRight: 10 }}>
+                Execute query
+              </BootstrapButton>
+              <BootstrapButton>Run this node</BootstrapButton>
+            </Box>
+          </div>
         </AccordionSummary>
       </Accordion>
     </div>

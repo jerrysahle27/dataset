@@ -4,10 +4,12 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: "flex",
+
+      backgroundColor: "#3D4B56",
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
-      background: theme.palette.common.black,
+      background: "#24303C",
       transition: theme.transitions.create(["width", "margin"], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
@@ -44,7 +46,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-      background: theme.palette.common.black,
+      background: "#202934",
       overflowX: "hidden",
       width: theme.spacing(7) + 1,
       [theme.breakpoints.up("sm")]: {
@@ -66,7 +68,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       borderBottomRightRadius: theme.spacing(2),
       paddingRight: theme.spacing(1),
       flexGrow: 1,
-      padding: theme.spacing(3),
+      // padding: theme.spacing(3),
       //   fontWeight: theme.typography.fontWeightMedium,
       "$expanded > &": {
         fontWeight: theme.typography.fontWeightRegular,
@@ -78,7 +80,26 @@ export const useStyles = makeStyles((theme: Theme) =>
         paddingLeft: theme.spacing(2),
       },
     },
+    container: {
+      display: "flex",
+      justifyContent: "space-between",
+      padding: theme.spacing(1),
+      backgroundColor:"#2E3A46"
+    },
+    title: {
+      display: "flex",
+      alignItems: "center",
+    },
+    FocusedItem: {
+      color: theme.palette.grey[400],
+    },
+    whiteItem: {
+      color: theme.palette.common.white,
+    },
     expanded: {},
     selected: {},
+    fileMenu: {
+      backgroundColor:"#3D4B56"
+    }
   })
 );

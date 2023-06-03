@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       padding: theme.spacing(2),
       margin: "auto",
-      backgroundColor: theme.palette.common.black,
+      backgroundColor: "#24303C",
       // maxWidth: 500
     },
     image: {
@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       display: "flex",
       alignItems: "center",
+      padding:theme.spacing(2)
     },
     FocusedItem: {
       color: theme.palette.grey[400],
@@ -73,7 +74,7 @@ export default function ComplexGrid() {
               Schemas
             </Button>
           </Grid>
-          <Divider className={classes.whiteItem} variant="middle"/>
+          <Divider className={classes.whiteItem} variant="middle" />
           <Grid item container direction="row" spacing={2}>
             <Grid item xs={12} sm={3}>
               <Button
@@ -90,13 +91,13 @@ export default function ComplexGrid() {
               <div className={classes.container}>
                 <div className={classes.title}>
                   <div style={{ marginRight: 10 }}>
-                    <Chip label="View" color="primary"/>
+                    <Chip label="View" color="primary" />
                   </div>
                   <Typography variant="body2" className={classes.whiteItem}>
                     dataset_5_from_script_builder
                   </Typography>
                 </div>
-                <CloseOutlinedIcon className={classes.whiteItem}/>
+                <CloseOutlinedIcon className={classes.whiteItem} />
               </div>
               <BasicTable />
             </Grid>

@@ -27,17 +27,17 @@ type StyledTreeItemProps = TreeItemProps & {
 const useTreeItemStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      color: theme.palette.text.secondary,
-      "&:hover > $content": {
-        backgroundColor: theme.palette.action.hover
-      },
-      "&:focus > $content, &$selected > $content": {
-        backgroundColor: `var(--tree-view-bg-color, ${theme.palette.grey[400]})`,
-        color: "var(--tree-view-color)"
-      },
-      "&:focus > $content $label, &:hover > $content $label, &$selected > $content $label": {
-        backgroundColor: "transparent"
-      }
+      // color: " #24303C",
+      // "&:hover > $content": {
+      //   backgroundColor: theme.palette.action.hover
+      // },
+      // "&:focus > $content, &$selected > $content": {
+      //   backgroundColor: `var(--tree-view-bg-color, ${theme.palette.grey[400]})`,
+      //   color: "var(--tree-view-color)"
+      // },
+      // "&:focus > $content $label, &:hover > $content $label, &$selected > $content $label": {
+      //   backgroundColor: "transparent"
+      // }
     },
     content: {
       color: theme.palette.text.secondary,
@@ -46,33 +46,33 @@ const useTreeItemStyles = makeStyles((theme: Theme) =>
       paddingRight: theme.spacing(1),
       // fontWeight: theme.typography.fontWeightMedium,
       "$expanded > &": {
-        fontWeight: theme.typography.fontWeightRegular
-      }
+        fontWeight: theme.typography.fontWeightRegular,
+      },
     },
     group: {
       marginLeft: 0,
       "& $content": {
-        paddingLeft: theme.spacing(2)
-      }
+        paddingLeft: theme.spacing(2),
+      },
     },
     expanded: {},
     selected: {},
     label: {
       fontWeight: "inherit",
-      color: "inherit"
+      color: "inherit",
     },
     labelRoot: {
       display: "flex",
       alignItems: "center",
-      padding: theme.spacing(0.5, 0)
+      padding: theme.spacing(0.5, 0),
     },
     labelIcon: {
-      marginRight: theme.spacing(1)
+      marginRight: theme.spacing(1),
     },
     labelText: {
       fontWeight: "inherit",
-      flexGrow: 1
-    }
+      flexGrow: 1,
+    },
   })
 );
 
@@ -102,7 +102,7 @@ function StyledTreeItem(props: StyledTreeItemProps) {
       }
       style={{
         "--tree-view-color": color,
-        "--tree-view-bg-color": bgColor
+        "--tree-view-bg-color": bgColor,
       }}
       classes={{
         root: classes.root,
@@ -110,7 +110,7 @@ function StyledTreeItem(props: StyledTreeItemProps) {
         expanded: classes.expanded,
         selected: classes.selected,
         group: classes.group,
-        label: classes.label
+        label: classes.label,
       }}
       {...other}
     />
@@ -126,29 +126,29 @@ export default function FileTreeView() {
           Name: "1_Simple_examples",
           value: [
             { label: "SQL", Name: "dataset_1" },
-            { label: "SQL", Name: "dataset_2_with_ref" }
-          ]
+            { label: "SQL", Name: "dataset_2_with_ref" },
+          ],
         },
         {
           Name: "2_advanced_examples",
           value: [
             { label: "SQL", Name: "dataset_3_increase" },
-            { label: "JS", Name: "dataset_4_increase" }
-          ]
+            { label: "JS", Name: "dataset_4_increase" },
+          ],
         },
         {
           Name: "3_Operations_and_",
           value: [
             { label: "ops", Name: "grant_access" },
-            { label: "assert", Name: "simple_assertion" }
-          ]
-        }
-      ]
+            { label: "assert", Name: "simple_assertion" },
+          ],
+        },
+      ],
     },
     {
       Name: "models_2",
-      value: []
-    }
+      value: [],
+    },
   ];
   return (
     <TreeView

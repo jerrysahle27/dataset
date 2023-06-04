@@ -7,7 +7,7 @@ import Folder from "@material-ui/icons/Folder";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import { SvgIconProps } from "@material-ui/core/SvgIcon";
-import { Chip } from "@material-ui/core";
+import Chip, { ChipProps } from "@material-ui/core/Chip";
 
 declare module "csstype" {
   interface Properties {
@@ -19,7 +19,7 @@ declare module "csstype" {
 type StyledTreeItemProps = TreeItemProps & {
   bgColor?: string;
   color?: string;
-  labelIcon: React.ElementType<SvgIconProps>;
+  labelIcon?: React.ElementType<SvgIconProps> | string;
   labelInfo?: string;
   labelText: string;
 };
@@ -27,17 +27,10 @@ type StyledTreeItemProps = TreeItemProps & {
 const useTreeItemStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      // color: " #24303C",
-      // "&:hover > $content": {
-      //   backgroundColor: theme.palette.action.hover
-      // },
-      // "&:focus > $content, &$selected > $content": {
-      //   backgroundColor: `var(--tree-view-bg-color, ${theme.palette.grey[400]})`,
-      //   color: "var(--tree-view-color)"
-      // },
-      // "&:focus > $content $label, &:hover > $content $label, &$selected > $content $label": {
-      //   backgroundColor: "transparent"
-      // }
+      color: " #24303C",
+      "&:hover > $content": {
+        backgroundColor: theme.palette.action.hover,
+      },
     },
     content: {
       color: theme.palette.text.secondary,
@@ -64,7 +57,7 @@ const useTreeItemStyles = makeStyles((theme: Theme) =>
     labelRoot: {
       display: "flex",
       alignItems: "center",
-      padding: theme.spacing(0.5, 0),
+      padding: theme.spacing(0.5, 0,1,1),
     },
     labelIcon: {
       marginRight: theme.spacing(1),
@@ -72,6 +65,7 @@ const useTreeItemStyles = makeStyles((theme: Theme) =>
     labelText: {
       fontWeight: "inherit",
       flexGrow: 1,
+      color: theme.palette.common.white,
     },
   })
 );
@@ -91,7 +85,16 @@ function StyledTreeItem(props: StyledTreeItemProps) {
     <TreeItem
       label={
         <div className={classes.labelRoot}>
-          <LabelIcon color="inherit" className={classes.labelIcon} />
+          {LabelIcon && typeof LabelIcon !== typeof labelText ? (
+            <LabelIcon className={classes.labelIcon} />
+          ) : (
+            <Chip
+              size="small"
+              label={LabelIcon?.toString()}
+              color={LabelIcon?.toString() === "SQL"? "primary":"secondary"}
+              className={classes.labelIcon}
+            />
+          )}
           <Typography variant="body2" className={classes.labelText}>
             {labelText}
           </Typography>
@@ -180,7 +183,7 @@ export default function FileTreeView() {
                           key={index_three}
                           nodeId={(index++).toString()}
                           labelText={item_value.Name}
-                          labelIcon={Folder}
+                          labelIcon={item_value.label}
                           color="#1a73e8"
                           bgColor="#e8f0fe"
                         />

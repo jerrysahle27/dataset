@@ -36,7 +36,7 @@ export default function SideDrawer(props: PropTypes) {
       }}
     >
       <div className={props.classes.toolbar}></div>
-      <Divider className={props.classes.divider} />
+      <Divider className={props.classes.whiteItem} />
       <List>
         <ListItem button>
           <ListItemIcon>
@@ -51,9 +51,9 @@ export default function SideDrawer(props: PropTypes) {
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? (
-                <LinkedCameraOutlinedIcon color="primary" />
+                <LinkedCameraOutlinedIcon className={props.classes.whiteItem} />
               ) : (
-                <Search color="primary" />
+                <Search className={props.classes.whiteItem} />
               )}
             </ListItemIcon>
             <ListItemText primary={text} />
@@ -66,13 +66,13 @@ export default function SideDrawer(props: PropTypes) {
           <ListItem button key={text}>
             <ListItemIcon>
               {index === 0 ? (
-                <GraphicEqOutlined color="primary" />
+                <GraphicEqOutlined className={props.classes.whiteItem} />
               ) : index === 1 ? (
-                <AlarmOutlined color="primary" />
+                <AlarmOutlined className={props.classes.whiteItem} />
               ) : index === 2 ? (
-                <EventNoteOutlined color="primary" />
+                <EventNoteOutlined className={props.classes.whiteItem} />
               ) : (
-                <StorageOutlined color="primary" />
+                <StorageOutlined className={props.classes.whiteItem} />
               )}
             </ListItemIcon>
             <ListItemText primary={text} />
@@ -83,7 +83,7 @@ export default function SideDrawer(props: PropTypes) {
       <List>
         <ListItem button>
           <ListItemIcon>
-            <ChevronRightIcon color="primary" />
+            <ChevronRightIcon className={props.classes.whiteItem} />
           </ListItemIcon>
           <ListItemText />
         </ListItem>

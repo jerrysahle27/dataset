@@ -4,7 +4,6 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: "flex",
-
       backgroundColor: "#3D4B56",
     },
     appBar: {
@@ -75,7 +74,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       },
     },
     group: {
-      marginLeft: 0,
       "& $content": {
         paddingLeft: theme.spacing(2),
       },

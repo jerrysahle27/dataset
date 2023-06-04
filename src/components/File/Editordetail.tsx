@@ -8,18 +8,12 @@ import {
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Alert from "@material-ui/lab/Alert";
-import {
-  Accordion,
-  Box,
-  Button,
-  Chip,
-  Container,
-  Typography,
-} from "@material-ui/core";
+import { Accordion, Box, Button, Chip, Typography } from "@material-ui/core";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
-import BootstrapButton from "../../common/button";
-
+import BootstrapButton from "../../common/bootstrapbutton";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import DefaultButton from "../../common/defaultbutton";
 const AntTabs = withStyles({
   root: {
     borderBottom: "2px solid grey",
@@ -71,21 +65,31 @@ interface StyledTabProps {
 
 const useStyles = makeStyles((theme: Theme) => ({
   demo1: {
-    backgroundColor:"#2E3A46"
+    backgroundColor: "#2E3A46",
   },
   container: {
+    display: "flex",
+    justifyContent: "space-between",
+    color: theme.palette.common.white,
+  },
+  querycontainer: {
     display: "flex-column",
     justifyContent: "space-between",
-    "& > *": {
-      margin: theme.spacing(1),
-    },
+    backgroundColor: "#2E3A46",
+    marginTop: theme.spacing(1.2),
+  },
+  chip: {
+    backgroundColor: "#6CA598",
+    color: theme.palette.common.white,
+    margin: theme.spacing(1),
   },
   buttongroup: {
     display: "flex-row",
   },
-  title: {
+  item: {
     display: "flex",
     alignItems: "center",
+    color: theme.palette.common.white,
   },
 }));
 
@@ -98,7 +102,7 @@ export default function CustomizedTabs() {
   };
 
   return (
-    <div className="demo1">
+    <div className={classes.demo1}>
       <div>
         <AntTabs value={value} onChange={handleChange} aria-label="ant example">
           <AntTab label="Outline" />
@@ -107,45 +111,54 @@ export default function CustomizedTabs() {
       </div>
       <Alert severity="warning">No Compilation issue</Alert>
       <div className={classes.container}>
-        <div className={classes.title}>
-          <div style={{ marginRight: 10 }}>
-            <Chip label="View" color="primary" />
-          </div>
+        <div className={classes.item}>
+          <Chip
+            size="small"
+            label="View"
+            color="primary"
+            className={classes.chip}
+          />
+
           <Typography variant="body2">dataset_5_from_script_builder</Typography>
         </div>
-        {/* <CloseOutlinedIcon /> */}
+        <MoreHorizIcon />
       </div>
-      <Accordion>
+      <Accordion className={classes.demo1}>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={
+            <>
+              <DefaultButton size="small">3</DefaultButton>
+              <ExpandMoreIcon className={classes.item} />
+            </>
+          }
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Dependencies</Typography>
+          <Typography className={classes.item}>Dependencies</Typography>
         </AccordionSummary>
       </Accordion>
-      <Accordion>
+      <Accordion className={classes.demo1}>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon className={classes.item} />}
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Compiled</Typography>
+          <Typography className={classes.item}>Compiled</Typography>
         </AccordionSummary>
       </Accordion>
-      <Accordion>
+      <Accordion className={classes.demo1}>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon className={classes.item} />}
           aria-controls="panel3a-content"
           id="panel3a-header"
         >
-          <div className={classes.container}>
-            <Typography>Query</Typography>
+          <div className={classes.querycontainer}>
+            <Typography className={classes.item}>Query</Typography>
 
-            <Box component="span" m={2}>
-              <BootstrapButton disabled style={{ marginRight: 10 }}>
+            <Box component="span">
+              <DefaultButton style={{ marginRight: 10 }}>
                 Execute query
-              </BootstrapButton>
+              </DefaultButton>
               <BootstrapButton>Run this node</BootstrapButton>
             </Box>
           </div>

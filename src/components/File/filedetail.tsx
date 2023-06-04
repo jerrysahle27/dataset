@@ -40,12 +40,16 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       display: "flex",
       alignItems: "center",
-      padding:theme.spacing(2)
+      padding: theme.spacing(2),
     },
     FocusedItem: {
       color: theme.palette.grey[400],
     },
     whiteItem: {
+      color: theme.palette.common.white,
+    },
+    chip: {
+      backgroundColor: "#6CA598",
       color: theme.palette.common.white,
     },
   })
@@ -91,7 +95,7 @@ export default function ComplexGrid() {
               <div className={classes.container}>
                 <div className={classes.title}>
                   <div style={{ marginRight: 10 }}>
-                    <Chip label="View" color="primary" />
+                    <Chip label="View" className={classes.chip} />
                   </div>
                   <Typography variant="body2" className={classes.whiteItem}>
                     dataset_5_from_script_builder

@@ -8,7 +8,7 @@ const BootstrapButton = withStyles({
     fontSize: 16,
     padding: "6px 12px",
     border: "1px solid",
-    textColor:"#fff",
+    color: "#fff",
     lineHeight: 1.5,
     backgroundColor: "#0063cc",
     borderColor: "#0063cc",
@@ -39,4 +39,5 @@ const BootstrapButton = withStyles({
     },
   },
 })(Button);
+
 export default BootstrapButton;

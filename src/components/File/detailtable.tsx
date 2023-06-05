@@ -39,7 +39,7 @@ export default function BasicTable() {
         <TableHead>
           <TableRow>
             <TableCell className={classes.tablevalue}>Field</TableCell>
-            <TableCell className={classes.tablevalue} align="right">
+            <TableCell className={classes.tablevalue} align="left">
               Type
             </TableCell>
           </TableRow>
@@ -54,7 +54,7 @@ export default function BasicTable() {
               >
                 {row.field}
               </TableCell>
-              <TableCell className={classes.tablevalue} align="right">
+              <TableCell className={classes.tablevalue} align="left">
                 {row.type}
               </TableCell>
             </TableRow>

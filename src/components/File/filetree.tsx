@@ -57,7 +57,7 @@ const useTreeItemStyles = makeStyles((theme: Theme) =>
     labelRoot: {
       display: "flex",
       alignItems: "center",
-      padding: theme.spacing(0.5, 0,1,1),
+      padding: theme.spacing(0.5, 0, 1, 1),
     },
     labelIcon: {
       marginRight: theme.spacing(1),
@@ -91,7 +91,7 @@ function StyledTreeItem(props: StyledTreeItemProps) {
             <Chip
               size="small"
               label={LabelIcon?.toString()}
-              color={LabelIcon?.toString() === "SQL"? "primary":"secondary"}
+              color={bgColor === undefined ? bgColor : "default"}
               className={classes.labelIcon}
             />
           )}
@@ -128,22 +128,49 @@ export default function FileTreeView() {
         {
           Name: "1_Simple_examples",
           value: [
-            { label: "SQL", Name: "dataset_1" },
-            { label: "SQL", Name: "dataset_2_with_ref" },
+            {
+              label: "SQL",
+              Name: "dataset_1",
+
+              iconBgColor: "#8c9f69",
+            },
+            {
+              label: "SQL",
+              Name: "dataset_2_with_ref",
+
+              iconBgColor: "#8c9f69",
+            },
           ],
         },
         {
           Name: "2_advanced_examples",
           value: [
-            { label: "SQL", Name: "dataset_3_increase" },
-            { label: "JS", Name: "dataset_4_increase" },
+            {
+              label: "SQL",
+              Name: "dataset_3_increase",
+
+              iconBgColor: "#8c9f69",
+            },
+            {
+              label: "JS",
+              Name: "dataset_4_increase",
+              iconBgColor: "#f4d074",
+            },
           ],
         },
         {
           Name: "3_Operations_and_",
           value: [
-            { label: "ops", Name: "grant_access" },
-            { label: "assert", Name: "simple_assertion" },
+            {
+              label: "ops",
+              Name: "grant_access",
+              iconBgColor: "#578c98",
+            },
+            {
+              label: "assert",
+              Name: "simple_assertion",
+              iconBgColor: "#9e7f71",
+            },
           ],
         },
       ],
@@ -185,7 +212,7 @@ export default function FileTreeView() {
                           labelText={item_value.Name}
                           labelIcon={item_value.label}
                           color="#1a73e8"
-                          bgColor="#e8f0fe"
+                          bgColor={item_value.iconBgColor}
                         />
                       ))
                     : null}
